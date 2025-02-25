@@ -391,48 +391,6 @@
         }
         */
 
-        function getUserIdFromUrl() {
-        const params = new URLSearchParams(window.location.search);
-        return params.get('userID');
-        console.log('User ID ATTEMPED');
-        }
-
-        const userId = getUserIdFromUrl();
-        console.log('User Id:', userId);
-
-        function logData(actionType, chargingStation, button, coordinates, map) {
-
-            /*
-        const entry = {
-            userId: userId,
-            timestamp: new Date().toISOString(),
-            actionType: actionType,
-            chargingStation: chargingStation,
-            button: button,
-            coordinates: coordinates,
-            map: map
-        };
-
-        fetch('http://localhost:3000/api/logData', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(entry)
-        })
-        .then(response => {
-            if (!response.ok) {
-                return response.text().then(text => { throw new Error(text) });
-            }
-            return response.json();
-        })
-        .then(data => console.log('Data logged:', data))
-        .catch(error => console.error('Error logging data:', error));
-
-        console.log("Data logged:", entry);
-        */
-        }
-
         function logData(actionType, chargingStation, button, coordinates, map) {
             const entry = [
                 new Date().toISOString(), // Timestamp
