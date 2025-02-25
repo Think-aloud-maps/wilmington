@@ -433,6 +433,22 @@
         */
         }
 
+        function logData(actionType, chargingStation, button, coordinates, map) {
+            const entry = [
+                new Date().toISOString(), // Timestamp
+                actionType,
+                chargingStation || "N/A",
+                button || "N/A",
+                coordinates ? coordinates.join(", ") : "N/A",
+                map
+            ];
+        
+            console.log("Sending data to Qualtrics:", entry);
+        
+            // Send data to parent (Qualtrics) using postMessage
+            window.parent.postMessage({ action: "logData", data: entry }, "*");
+        }
+
 
         // Function to calculate the distance between two points using the Haversine formula
         function haversineDistance(coords1, coords2) {
